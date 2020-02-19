@@ -10,6 +10,7 @@ function parseEntry() {
     document.getElementById('spark_instruction').value = '';
     document.getElementById('result').removeAttribute('hidden');
     document.getElementById('args').innerHTML = '';
+    document.getElementById('pyargs').innerHTML = '';
 
 
     let args = input.split('spark-submit ')[1].split(' ');
