@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="Author" content="kylinfish">
+        <meta name="AuthorWebSite" content="kylinyu.win">
+        <meta name="description" content="Online parses your spark-submit instructions and easy to visualize.">
+        <meta property="og:title" content="Spark-Submit parser online">
+        <meta property="og:site_name" content="Spark-Submit parser online">
+        <meta property="og:url" content="https://sparksubmit-parser-online.web.app/">
+        <meta property="og:description" content="Online parses your spark-submit instructions and easy to visualize.">
+        <meta property="og:type" content="article">
+        <meta property="og:image" content="https://kylinyu.win/favicons/favicon-16x16.png">
+        <title>Spark-Submit Instruction Parser Online</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+    </head>
+    <body>
+        <a class="github-fork-ribbon" href="https://github.com/kylinfish/spark_submit_parser" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+
+        <div class="container mt-5">
+            <h1 class="text-center">Parse your spark-submit easily <a target="_blank" rel="noopener noreferrer" href="https://kylinyu.win?utm_source=sparksubmit">😁</a></h1>
+            <form>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Fill in your spark-submit instruction here</label>
+                        <textarea class="form-control" id="spark_instruction" rows="4" required>spark-submit --deploy-mode cluster --master yarn --driver-memory 1g --executor-cores 2 --executor-memory 2g s3://hello-world-repo/world_temp/aggregate_data_sources.py --data_source_s3_path s3://hello-world-repo/data/pattern_source/ --replay_aggregated_output_s3_path s3://today-prod/hello/pattern_source_aggregate/ --start_at 2020/02/16 --replay_aggregate_day_window 90
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info btn-block">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="container" id="result" hidden="true">
+                <h4>Original Source:</h4>
+                <div class="card card-body">
+                    <span id="originalInput"></span>
+                </div>
+
+                <h4 class="mt-2">Spark Arguemnts</h4>
+                <div class="alert alert-success" id="args"></div>
+
+                <h4 class="mt-2">Python Arguments</h4>
+                <div class="alert alert-info" id="pyargs"></div>
+            </div>
+        </div>
+
+        <script src="main.js?bump=202002191316"></script>
+    </body>
+</html>
