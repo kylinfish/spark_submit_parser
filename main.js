@@ -23,7 +23,7 @@ function parseEntry() {
             continue;
         }
 
-        let content = (args[i].search('--') != -1) ? (args[i] + ':   ' + args[++i]) : args[i];
+        let content = (args[i].search('--') != -1) ? (args[i] + '   ' + args[++i]) : args[i];
 
         let liNode = document.createElement('li');
         let textnode = document.createTextNode(content);
