@@ -12,9 +12,11 @@ function parseEntry() {
     document.getElementById('args').innerHTML = '';
 
 
-    let args = input.split('spark-submit ')[1].split(' ')
+    let args = input.split('spark-submit ')[1].split(' ');
 
-    let ulNode = document.createElement('ul');
+    let pyArgsFlag = false;
+    let ulBasicNode = document.createElement('ul');
+    let ulPyNode = document.createElement('ul');
     for (let i = 0; i < args.length; i++) {
         if (args[i] == '') {
             continue;
@@ -25,8 +27,18 @@ function parseEntry() {
         let liNode = document.createElement('li');
         let textnode = document.createTextNode(content);
         liNode.appendChild(textnode);
-        ulNode.appendChild(liNode);
+
+        if (!pyArgsFlag && args[i].search('.py') != -1) {
+            pyArgsFlag = true
+        }
+
+        if (pyArgsFlag) {
+            ulPyNode.appendChild(liNode);
+        } else {
+            ulBasicNode.appendChild(liNode);
+        }
     }
 
-    document.getElementById('args').appendChild(ulNode);
+    document.getElementById('args').appendChild(ulBasicNode);
+    document.getElementById('pyargs').appendChild(ulPyNode);
 }
