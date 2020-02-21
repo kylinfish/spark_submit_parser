@@ -31,3 +31,7 @@ h2.title {
     padding-right: 15px;
     padding-left: 15px;
 }
+
+.mt-custom {
+    margin-top: 5rem;
+}
